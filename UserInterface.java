@@ -6,37 +6,36 @@ public class UserInterface {
 	{
 		Scanner sc = new Scanner(System.in);
 		//Fill the code here
-		System.out.println("Enter the sides");
-		int sides =sc.nextInt();
-	    
-	    if(sides == 0){
-	        System.out.println("Enter the radius");
-	        double rad=sc.nextDouble();
-	        System.out.printf("Area of the circle is %.2f",3.14*rad*rad);
-	    }
-	    
-	    else if(sides ==3){
-	        System.out.println("Enter the base and height");
-	        double base =sc.nextDouble();
-	        double height=sc.nextDouble();
-	        System.out.printf("Area of the Triangle is %.2f",(base*height)/2);
-	    }
-		else if(sides ==4 )
-		{
-		    System.out.println("Enter the length");
-	        double l =sc.nextDouble();
-	        System.out.println("Enter the breadth");
-	        double b=sc.nextDouble();
-	        if(l==b){
-	            System.out.printf("Area of the Square is %.2f",l*b);
-	        }
-	        else{
-	            System.out.printf("Area of the Rectangle is %.2f",l*b);
-	        }
+		System.out.println("Enter weight in kg");
+		double weight=sc.nextDouble();
+		
+		System.out.println("Enter height in cm");
+		double height=sc.nextDouble();
+		
+		double height1=height/100;
+		
+		double bmi =weight/(height1 * height1);
+		
+		System.out.printf("Your BMI is %.2f. ",bmi);
+		
+		if(bmi > 25){
+		System.out.println("You are overweight");
+		double reduce=bmi-25;
+		System.out.printf("Reduce %.2f kg to be fit",reduce);
+		}
+		else if(bmi < 18.5){
+		    System.out.println("You are underweight");
+		    //double min =18.5*height1*height1;
+		    double Gain = 18.5 - bmi;
+		    System.out.printf("Gain %.2f kg to be fit",Gain);
+		}
+		else if(bmi < 25 && bmi >=18.5){
+		     System.out.println("You are fit and healthy");
 		}
 		else{
-		    System.out.printf("Invalid side");
+		    System.out.println("Invalid");
 		}
+		sc.close();
 	}
 
 }
